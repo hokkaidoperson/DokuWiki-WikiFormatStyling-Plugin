@@ -45,7 +45,7 @@ class syntax_plugin_wikiformatstyling_nwtag extends DokuWiki_Syntax_Plugin {
      * Create output
      */
     function render($format, Doku_Renderer $renderer, $data) {
-        if ( $data[1] == DOKU_LEXER_UNMATCHED ) {
+        if (is_array($data) && (count($data) > 1) && ($data[1] == DOKU_LEXER_UNMATCHED)) {
             $renderer->doc .= '<span class="wss-nowiki-section">' . hsc($data[0]) . '</span>';
         }
 
